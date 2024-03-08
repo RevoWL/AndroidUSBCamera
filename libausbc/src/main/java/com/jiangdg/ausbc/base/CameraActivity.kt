@@ -546,7 +546,33 @@ abstract class CameraActivity: BaseActivity(), ICameraStateCallBack {
             camera.getBrightness()
         }
     }
+    /**
+     * Set brightness
+     *
+     * @param brightness camera brightness
+     */
+    protected fun setFocus(focus: Int) {
+        getCurrentCamera()?.let { camera ->
+            if (camera !is CameraUVC) {
+                return
+            }
+            camera.setFocus(focus)
+        }
+    }
 
+    /**
+     * Get brightness
+     *
+     * @return current brightness value
+     */
+    protected fun getFocus(): Int? {
+        return getCurrentCamera()?.let { camera ->
+            if (camera !is CameraUVC) {
+                return@let null
+            }
+            camera.getFocus()
+        }
+    }
     /**
      * Reset brightness
      */
