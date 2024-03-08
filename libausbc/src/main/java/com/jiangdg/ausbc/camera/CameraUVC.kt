@@ -367,7 +367,14 @@ class CameraUVC(ctx: Context, device: UsbDevice) : MultiCameraClient.ICamera(ctx
      * Get zoom
      */
     fun getZoom() = mUvcCamera?.zoom
+    fun setFocus(focus: Int) {
+        mUvcCamera?.focus = focus
+    }
 
+    /**
+     * Get zoom
+     */
+    fun getFocus() = mUvcCamera?.focus
     /**
      * Reset zoom
      */
