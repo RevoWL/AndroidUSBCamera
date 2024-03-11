@@ -43,6 +43,8 @@ import java.util.concurrent.atomic.AtomicBoolean
  *
  * @author Created by jiangdg on 2023/2/3
  */
+
+// Force build
 abstract class CameraActivity: BaseActivity(), ICameraStateCallBack {
     private var mCameraView: IAspectRatio? = null
     private var mCameraClient: MultiCameraClient? = null
