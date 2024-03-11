@@ -526,7 +526,8 @@ public class UVCCamera {
      */
 	public synchronized int getFocus() {
 		System.out.println("Max Focus: " + mFocusMax + " Min Focus: " + mFocusMin);
-    	return getFocus(nativeGetFocus(mNativePtr));
+		return mFocusMax;
+    	//return getFocus(nativeGetFocus(mNativePtr));
     }
 
 	public synchronized void resetFocus() {
