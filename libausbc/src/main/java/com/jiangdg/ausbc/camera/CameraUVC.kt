@@ -238,13 +238,13 @@ class CameraUVC(ctx: Context, device: UsbDevice) : MultiCameraClient.ICamera(ctx
 
     override fun captureImageInternal(savePath: String?, callback: ICaptureCallBack) {
         mSaveImageExecutor.submit {
-   //         if (! CameraUtils.hasStoragePermission(ctx)) {
-  //              mMainHandler.post {
-  //                  callback.onError("have no storage permission")
-  //              }
-  //              Logger.e(TAG,"open camera failed, have no storage permission")
- //               return@submit
- //           }
+            if (! CameraUtils.hasStoragePermission(ctx)) {
+                mMainHandler.post {
+                    callback.onError("have no storage permission")
+                }
+                Logger.e(TAG,"open camera failed, have no storage permission")
+                return@submit
+            }
             if (! isPreviewed) {
                 mMainHandler.post {
                     callback.onError("camera not previewing")
